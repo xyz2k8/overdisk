@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:background="#ff0597d2"
+    android:gravity="center_vertical" >
+    
+    <!-- 
+        //0xff0597d2 ,0xff49b956 , 0xffcc324b , 0xff1a4e95 , 0xff55bc75 , 0xffe55f3a
+        //blue        green        red          blue2        green2       orange
+    -->
+
+    
+    <ImageButton
+        android:background="#00000000"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:src="@drawable/arrow_nav_back_btn"
+        android:id="@+id/title_bar_nav_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+    
+    <ImageButton        
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:layout_marginRight="20dip"
+        android:src="@drawable/settings_selector" />
+    
+    <TextView
+        android:id="@+id/title_bar_name"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+    
+</RelativeLayout>

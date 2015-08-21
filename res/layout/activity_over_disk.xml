@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ffc1c1c1">
+    
+    
+    <!-- TextView
+        
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="#ff313131"
+        android:paddingLeft="5.0dip"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp"/-->
+    
+    <include
+	    android:layout_width="match_parent"
+	    android:layout_height="45dip"
+	    layout="@layout/title_bar" />
+    
+	<include
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    layout="@layout/info_view" />
+    
+    <com.xyz2k8.overdisk.RingView
+        android:background="#ffffffff"
+        android:id="@+id/ringView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp" />
+        
+</LinearLayout>

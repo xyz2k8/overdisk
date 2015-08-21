@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<resources>    
+    <declare-styleable name="PercentPanel">  
+        <attr name="percent" format="integer"></attr>  
+        <attr name="allLineColor" format="color" />    
+        <attr name="percentLineColorLow" format="color" />    
+        <attr name="percentLineColorHight" format="color" />   
+    </declare-styleable>  
+</resources> 

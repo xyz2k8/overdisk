@@ -1,0 +1,128 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    <style name="ActionSheetAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/push_up_in</item>
+        <item name="android:windowExitAnimation">@anim/push_up_out</item>
+    </style>
+    
+    <style name="OprationSheetAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/left_in</item>
+        <item name="android:windowExitAnimation">@anim/left_out</item>
+        <item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsTranslucent">false</item>
+		<item name="android:windowBackground">@color/transparent_half</item>
+        <item name="android:windowContentOverlay">@null</item> 
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>    
+    
+    <style name="ActionSheetGetInputAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/left_in</item>
+        <item name="android:windowExitAnimation">@anim/left_out</item>
+    </style>
+    
+    <style name="ContentOverlay" parent="android:style/Theme.Dialog">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@color/transparent_half</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowContentOverlay">@null</item> 
+        <item name="android:backgroundDimEnabled">false</item>
+	</style>
+	
+   
+	
+    <!-- style name="Theme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:spinnerStyle">@style/StandardSpinner</item>
+    </style-->
+    <style name="NikePreferenceTheme" parent="@android:style/Theme.Light" />
+    <style name="NikePreferenceTheme.NoTitle" parent="@android:style/Theme.Light.NoTitleBar" />
+    <!-- style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/back_semi_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style-->
+    <!-- style name="CustomDialogTransparentTheme" parent="@style/CustomDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style-->
+    <!-- style name="WhatIsNewDialogTheme" parent="@style/CustomDialogTheme">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style-->
+    <style name="full_screen_dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+    <!-- style name="StandardSpinner" parent="@android:style/Widget.Spinner">
+        <item name="android:textSize">@dimen/textsize_8pt</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/nike_darkgray</item>
+    </style-->
+    <style name="SettingsTheme" parent="@android:style/Theme.Light">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+    </style>
+    <style name="MyDefaultTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <!-- style name="TextBasic">
+        <item name="android:textSize">@dimen/normal_textsize_7pt</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style-->
+    
+    <style name="TransparentMenu" parent="@android:style/Theme.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="MatchParentWidth">
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+    <style name="WrapContentWidth">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <style name="MatchParentWidth.MatchParentHeight" parent="@style/MatchParentWidth">
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="MatchParentWidth.WrapContentHeight" parent="@style/MatchParentWidth">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="WrapContentWidth.MatchParentHeight" parent="@style/WrapContentWidth">
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="WrapContentWidth.WrapContentHeight" parent="@style/WrapContentWidth">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+     
+    <style name="page_caption">
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">4.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50.0dip</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+
+</resources>

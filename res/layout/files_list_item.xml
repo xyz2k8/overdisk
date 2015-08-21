@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout01"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:text="xxxx"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dip"
+        android:textColor="#ff0597d2" 
+        android:layout_weight="1.0"
+        android:id="@+id/item_name" />
+        
+        <LinearLayout
+            android:id="@+id/right_info"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3.0"
+            android:paddingRight="25dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+	
+	        <TextView
+	            android:id="@+id/item_type"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:paddingBottom="2dip"
+	            android:gravity="right"
+	            android:text="D"
+	            android:typeface="sans"
+	            android:textStyle="italic"
+	            android:textColor="#ffcccccc"
+	            android:textSize="12dip" />
+	
+	        <TextView
+	            android:id="@+id/item_size"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:paddingTop="2dip"
+	            android:gravity="right"
+	            android:text="1024 K"
+	            android:typeface="sans"
+	            android:textStyle="italic"
+	            android:textColor="#ff3c3c3c"
+	            android:textSize="8dip" />
+	        
+	    </LinearLayout>
+    
+</LinearLayout>

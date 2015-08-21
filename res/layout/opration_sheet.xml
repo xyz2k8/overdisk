@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_gravity="center_vertical"
+    android:padding="40dip" >
+    
+    <TextView
+        android:id="@+id/del_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_middle_selector"
+        android:gravity="center"
+        android:text="操  作"
+        android:textColor="#ff0000"
+        android:textSize="20sp"/>
+    
+
+    <TextView
+        android:id="@+id/op_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_middle_selector"
+        android:gravity="center"
+        android:text="删  除"
+        android:textColor="#ff0597d2"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/op_hide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_middle_selector"
+        android:gravity="center"
+        android:text="忽  略"
+        android:textColor="#ff0597d2"
+        android:textSize="16sp" />
+    
+    <TextView
+        android:id="@+id/op_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_middle_selector"
+        android:gravity="center"
+        android:text="打  开"
+        android:textColor="#ff0597d2"
+        android:textSize="16sp" />
+    
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/op_attrs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_middle_selector"
+        android:gravity="center"
+        android:text="属  性"
+        android:textColor="#ff0597d2"
+        android:textSize="16sp" />
+
+</LinearLayout>
