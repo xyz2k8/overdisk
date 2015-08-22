@@ -1,5 +1,6 @@
 package com.xyz2k8.overdisk;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import com.xyz2k8.overdisk.ActionSheet.OnActionSheetSelected;
@@ -7,8 +8,11 @@ import com.xyz2k8.overdisk.SelectOpration.OnOprationSelected;
 import com.xyz2k8.utils.MyUtils;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
@@ -185,10 +189,150 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
 			}
 			else
 			{
-				Toast.makeText(this, "当前不是目录", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(this, "当前不是目录", Toast.LENGTH_SHORT).show();
+				openFile(touchedItemName);
 			}
 			mPrePos = position;
 		}
+	}
+	
+	private void openFile(String fileName)
+	{
+		File   file     = new File(mFileMag.getCurrentDir() + "/" + fileName);
+		String item_ext = null;
+		
+		try {
+    		item_ext = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+    		
+    	} catch(IndexOutOfBoundsException e) {	
+    		item_ext = ""; 
+    	}
+		  	
+    	/*music file selected--add more audio formats*/
+    	if (item_ext.equalsIgnoreCase(".mp3") || 
+			item_ext.equalsIgnoreCase(".m4a")||
+			item_ext.equalsIgnoreCase(".mp4")) 
+    	{
+    		
+    		Intent i = new Intent();
+			i.setAction(android.content.Intent.ACTION_VIEW);
+			i.setDataAndType(Uri.fromFile(file), "audio/*");
+			startActivity(i);    		
+    	}
+    	/*photo file selected*/
+    	else if(item_ext.equalsIgnoreCase(".jpeg") || 
+    			item_ext.equalsIgnoreCase(".jpg")  ||
+    			item_ext.equalsIgnoreCase(".png")  ||
+    			item_ext.equalsIgnoreCase(".gif")  || 
+    			item_ext.equalsIgnoreCase(".tiff")) 
+    	{
+ 			    		
+		
+    		Intent picIntent = new Intent();
+    		picIntent.setAction(android.content.Intent.ACTION_VIEW);
+    		picIntent.setDataAndType(Uri.fromFile(file), "image/*");
+    		startActivity(picIntent);
+	    }/*video file selected--add more video formats*/
+    	else if(item_ext.equalsIgnoreCase(".m4v") || 
+    			item_ext.equalsIgnoreCase(".3gp") ||
+    			item_ext.equalsIgnoreCase(".wmv") || 
+    			item_ext.equalsIgnoreCase(".mp4") || 
+    			item_ext.equalsIgnoreCase(".ogg") ||
+    			item_ext.equalsIgnoreCase(".wav")) 
+    	{
+			Intent movieIntent = new Intent();
+    		movieIntent.setAction(android.content.Intent.ACTION_VIEW);
+    		movieIntent.setDataAndType(Uri.fromFile(file), "video/*");
+    		startActivity(movieIntent);
+    	}/*zip file */
+    	else if(item_ext.equalsIgnoreCase(".zip")) {
+    		
+    	}
+    	/* gzip files, this will be implemented later */
+    	else if(item_ext.equalsIgnoreCase(".gzip") ||
+    			item_ext.equalsIgnoreCase(".gz")) 
+    	{
+
+    	}
+    	/*pdf file selected*/
+    	else if(item_ext.equalsIgnoreCase(".pdf")) 
+    	{
+    		
+    		Intent pdfIntent = new Intent();
+    		pdfIntent.setAction(android.content.Intent.ACTION_VIEW);
+    		pdfIntent.setDataAndType(Uri.fromFile(file), 
+    								 "application/pdf");
+    		
+    		try 
+    		{
+    			startActivity(pdfIntent);
+    		} 
+    		catch (ActivityNotFoundException e) 
+    		{
+    			Toast.makeText(this, "Sorry, couldn't find a pdf viewer", 
+						Toast.LENGTH_SHORT).show();
+    		}
+		}
+    	/*Android application file*/
+    	else if(item_ext.equalsIgnoreCase(".apk"))
+    	{
+    		Intent apkIntent = new Intent();
+			apkIntent.setAction(android.content.Intent.ACTION_VIEW);
+			apkIntent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+			startActivity(apkIntent);
+		}
+    	/* HTML file */
+    	else if(item_ext.equalsIgnoreCase(".html")) 
+    	{
+			Intent htmlIntent = new Intent();
+			htmlIntent.setAction(android.content.Intent.ACTION_VIEW);
+			htmlIntent.setDataAndType(Uri.fromFile(file), "text/html");
+			
+			try 
+			{
+				startActivity(htmlIntent);
+			}
+			catch(ActivityNotFoundException e) 
+			{
+				Toast.makeText(this, "Sorry, couldn't find a HTML viewer", 
+									Toast.LENGTH_SHORT).show();
+			}
+    	}
+    	/* text file*/
+    	else if(item_ext.equalsIgnoreCase(".txt")) {
+    		
+			Intent txtIntent = new Intent();
+			txtIntent.setAction(android.content.Intent.ACTION_VIEW);
+			txtIntent.setDataAndType(Uri.fromFile(file), "text/plain");
+			
+			try 
+			{
+				startActivity(txtIntent);
+			}
+			catch(ActivityNotFoundException e) 
+			{
+				txtIntent.setType("text/*");
+				startActivity(txtIntent);
+			}
+    	}
+    	/* generic intent */
+    	else 
+    	{
+    		Intent generic = new Intent();
+    		generic.setAction(android.content.Intent.ACTION_VIEW);
+    		generic.setDataAndType(Uri.fromFile(file), "text/plain");
+    		
+    		try 
+    		{
+    			startActivity(generic);
+    		}
+    		catch(ActivityNotFoundException e) 
+    		{
+    			Toast.makeText(this, "Sorry, couldn't find anything " +
+    						   "to open " + file.getName(), 
+    						   Toast.LENGTH_SHORT).show();
+    		}
+    	}
 	}
 
 	@Override
