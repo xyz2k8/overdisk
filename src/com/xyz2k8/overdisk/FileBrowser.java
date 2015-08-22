@@ -246,15 +246,6 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
     		movieIntent.setAction(android.content.Intent.ACTION_VIEW);
     		movieIntent.setDataAndType(Uri.fromFile(file), "video/*");
     		startActivity(movieIntent);
-    	}/*zip file */
-    	else if(item_ext.equalsIgnoreCase(".zip")) {
-    		
-    	}
-    	/* gzip files, this will be implemented later */
-    	else if(item_ext.equalsIgnoreCase(".gzip") ||
-    			item_ext.equalsIgnoreCase(".gz")) 
-    	{
-
     	}
     	/*pdf file selected*/
     	else if(item_ext.equalsIgnoreCase(".pdf")) 
