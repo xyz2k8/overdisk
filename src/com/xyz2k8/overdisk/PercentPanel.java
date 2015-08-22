@@ -36,6 +36,7 @@ public class PercentPanel extends View{
     private int percentLineWidth = 4;  
     private int lineHeight = 20;  
     private int lineHeight2 = 30;
+    private int y_offset = 0;
     
     private Rect mRect = null;
     private OnRegionClickListener mListener;
@@ -144,15 +145,15 @@ public class PercentPanel extends View{
         int width = getMeasuredWidth();    
         int height = getMeasuredHeight();    
         int pointX = width/2;    
-        int pointY = height/2 + 50;
+        int pointY = height/2 + y_offset;
         int radius = 0;
         if(width > height)
         {
-        	radius = 3*height/4;
+        	radius = 4*height/5;
         }
         else
         {
-        	radius = 3*width/4;
+        	radius = 4*width/5;
         }
         
         setPaintColor();
@@ -250,8 +251,19 @@ public class PercentPanel extends View{
         //super.onMeasure(widthMeasureSpec, heightMeasureSpec);   
         int width = MeasureSpec.getSize(widthMeasureSpec);    
         int height = MeasureSpec.getSize(heightMeasureSpec);    
-        int d = (width >= height) ? height : width;    
-        setMeasuredDimension(d,d);    
+        int d = (width >= height) ? height : width;
+        
+        textSize = (int)(0.2*width);
+        textSize2 = textSize/4;
+        
+        percentPaint.setTextSize((int)(0.05*width));
+        textPaint.setTextSize(textSize);
+        textPaint2.setTextSize(textSize2);
+        setMeasuredDimension(d,d);
+        
+        lineHeight  = (int)(0.038*width);  
+        lineHeight2 = (int)(0.058*width);
+        y_offset    = (int)(0.096*width);
     }
   
     public void setPercent(int percent) {  
