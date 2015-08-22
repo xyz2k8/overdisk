@@ -78,6 +78,7 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
         Bundle bundle = new Bundle();
 	    bundle = this.getIntent().getExtras();
 	    mRootPath = bundle.getString("path");
+	    mRootPath = mRootPath.replace("//", "/");
 	    mFileMag = new FileManager();
 	    mChildren = mFileMag.setHomeDir(mRootPath);
 	    
@@ -166,6 +167,7 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
 		String currentDir = mFileMag.getCurrentDir();
 		if(touchedItemName.equals(".."))
 		{
+			mRootPath = mRootPath.replace("//", "/");
 			if(currentDir.equals("/") || currentDir.equals(mRootPath))
 			{
 				Toast.makeText(this, "当前已经是根目录", Toast.LENGTH_SHORT).show();
@@ -384,6 +386,44 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
 	
 	@Override
     public void onBackPressed() {
-		finish();
+		String currentDir = mFileMag.getCurrentDir();
+		mRootPath = mRootPath.replace("//", "/");
+		if(currentDir.equals("/") || currentDir.equals(mRootPath))
+		{
+		    exit();	
+		}
+		else
+		{
+			mChildren = mFileMag.getPreviousDir();
+			buildItemList();
+			mListItemAdapter.notifyDataSetChanged();
+			mListView.setSelection(mPrePos);
+		}    	
+    }
+    
+	boolean isExitThisActivity;
+	
+	Handler mBackPressedHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            isExitThisActivity = false;
+        }
+    };
+	
+	private void exit()
+	{
+        if (!isExitThisActivity) 
+        {
+        	isExitThisActivity = true;
+            Toast.makeText(getApplicationContext(), "再按一次返回", Toast.LENGTH_SHORT).show();
+            mBackPressedHandler.sendEmptyMessageDelayed(0, 1000);
+        }
+        else 
+        {
+            finish();
+        }
     }
 }

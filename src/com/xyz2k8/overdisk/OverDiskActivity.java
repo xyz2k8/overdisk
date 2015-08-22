@@ -19,6 +19,7 @@ import android.os.Message;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.view.Menu;
 import android.view.View;
@@ -655,6 +656,32 @@ public class OverDiskActivity extends Activity implements OnActionSheetSelected,
     
     @Override
     public void onBackPressed() {
-    	finish();
+    	exit();
+    }
+    
+	boolean isExitThisActivity;
+	
+	Handler mBackPressedHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            isExitThisActivity = false;
+        }
+    };
+	
+	private void exit()
+	{
+        if (!isExitThisActivity) 
+        {
+        	isExitThisActivity = true;
+            Toast.makeText(getApplicationContext(), "再按一次返回", Toast.LENGTH_SHORT).show();
+            mBackPressedHandler.sendEmptyMessageDelayed(0, 1000);
+        }
+        else 
+        {
+            finish();
+        }
     }
 }
