@@ -37,6 +37,7 @@ public class PercentPanel extends View{
     private int lineHeight = 20;  
     private int lineHeight2 = 30;
     private int y_offset = 0;
+    private int arrow_offset = 0;
     
     private Rect mRect = null;
     private OnRegionClickListener mListener;
@@ -215,7 +216,7 @@ public class PercentPanel extends View{
         canvas.translate(0,pointY);   
         canvas.rotate(-45, pointX, 0); 
         canvas.rotate(degrees * curr_percent, pointX, 0);
-        canvas.drawLine(60, 0, lineHeight + pointX, 0, percentPaint);
+        canvas.drawLine(arrow_offset, 0, lineHeight + pointX, 0, percentPaint);
               
         canvas.restore();  
         
@@ -264,6 +265,7 @@ public class PercentPanel extends View{
         lineHeight  = (int)(0.038*width);  
         lineHeight2 = (int)(0.058*width);
         y_offset    = (int)(0.096*width);
+        arrow_offset= (int)(0.116*width);
     }
   
     public void setPercent(int percent) {  
