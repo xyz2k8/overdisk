@@ -4734,8 +4734,10 @@ com.xyz2k8.overdisk.PercentPanel -> com.xyz2k8.overdisk.PercentPanel:
     int percentLineWidth -> m
     int lineHeight -> n
     int lineHeight2 -> o
-    android.graphics.Rect mRect -> p
-    com.xyz2k8.overdisk.PercentPanel$OnRegionClickListener mListener -> q
+    int y_offset -> p
+    int arrow_offset -> q
+    android.graphics.Rect mRect -> r
+    com.xyz2k8.overdisk.PercentPanel$OnRegionClickListener mListener -> s
     android.os.Handler mHandler -> a
     void setOnRegionClickListener(com.xyz2k8.overdisk.PercentPanel$OnRegionClickListener) -> setOnRegionClickListener
     void init(android.util.AttributeSet,int) -> a

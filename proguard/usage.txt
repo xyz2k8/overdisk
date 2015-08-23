@@ -6,7 +6,7 @@ com.xyz2k8.overdisk.ActionSheet:
     17:17:public ActionSheet()
 com.xyz2k8.overdisk.BuildConfig
 com.xyz2k8.overdisk.FileBrowser:
-    56:56:public android.os.Handler getHandler()
+    60:60:public android.os.Handler getHandler()
 com.xyz2k8.overdisk.FileManager:
     68:69:public boolean isFile(java.lang.String)
     78:79:public void clearDirSize()

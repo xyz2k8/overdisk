@@ -212,8 +212,7 @@ public final class FileBrowser extends Activity implements OnActionSheetSelected
 		  	
     	/*music file selected--add more audio formats*/
     	if (item_ext.equalsIgnoreCase(".mp3") || 
-			item_ext.equalsIgnoreCase(".m4a")||
-			item_ext.equalsIgnoreCase(".mp4")) 
+			item_ext.equalsIgnoreCase(".m4a")) 
     	{
     		
     		Intent i = new Intent();
